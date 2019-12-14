@@ -46,6 +46,11 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage[amsmath,thmmarks,hyperref]{ntheorem}
 \RequirePackage{txfonts}
 
+%%%%%%%%%% hyphen %%%%%%%%%%
+% For the `\hyp{}` command. Allow the user to insert `hyp{}` manually to
+% adjust the line break when necessary.
+\RequirePackage{hyphenat}
+
 % 主要字体为Times New Roman和宋体
 % 模板某些标题需要华文行楷和32号字
 \setmainfont{Times New Roman}
@@ -72,7 +77,7 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage{geometry}
 \newgeometry{
     top=30mm, bottom=25mm, left=30mm, right=20mm,
-    headsep=5mm,
+    headsep=5mm, includefoot
 }
 \savegeometry{bachelorgeometry}
 \newgeometry{
@@ -211,7 +216,7 @@ The LaTeX template for thesis of BUAA]
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.07\baselineskip}]
     \titlecontents{section}[2em]{\songti\zihao{-4}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.1\baselineskip}]
-    \titlecontents{subsection}[4em]{\vspace{-0.2\baselineskip}\heiti\zihao{5}}{\thecontentslabel\ }{}
+    \titlecontents{subsection}[4em]{\vspace{-0.2\baselineskip}\songti\zihao{5}}{\thecontentslabel\ }{}
         {\hspace{.5em}\titlerule*[4pt]{$\cdot$}{\zihao{-4}\contentspage}}[\vspace{0.1\baselineskip}]
 \fi
 
@@ -407,9 +412,9 @@ The LaTeX template for thesis of BUAA]
 \DeclareCaptionFormat{bachelorfigure}{\songti\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelortable}{\heiti\bf\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelorlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{masterfigure}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{mastertable}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{masterlstlisting}{\bf\songti\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterfigure}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{mastertable}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
 \ifbuaa@bachelor
     \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
     \captionsetup[table]{format=bachelortable,labelsep=quad}
@@ -871,7 +876,6 @@ The LaTeX template for thesis of BUAA]
         \ulinel{\buaa@bachelor@assign@work@three}
         \ulinel{\buaa@bachelor@assign@work@four}
         \ulinel{\buaa@bachelor@assign@work@five}
-        \ulinel{\buaa@bachelor@assign@work@six}
         \newpage
         \thispagestyle{empty}
         \begin{spacing}{1.9}
@@ -884,8 +888,6 @@ The LaTeX template for thesis of BUAA]
         \ulinel{\buaa@bachelor@assign@ref@four}
         \ulinel{\buaa@bachelor@assign@ref@five}
         \ulinel{\buaa@bachelor@assign@ref@six}
-        \ulinel{\buaa@bachelor@assign@ref@seven}
-        \ulinel{\buaa@bachelor@assign@ref@eight}
         \ulinec[.28]{\buaa@school}学院\ulinec[.28]{\buaa@major}~专业类~\ulinec[.15]{\buaa@class}班 \\
         学生\ulinec[.3]{\buaa@thesisauthor} \\
         毕业设计(论文)时间：~~\ulinec[.1]{\buaa@thesisbeginyear}年\ulinec[.06]{\buaa@thesisbeginmonth}月\ulinec[.06]{\buaa@thesisbeginday}日至\ulinec[.1]{\buaa@thesisendyear}年\ulinec[.06]{\buaa@thesisendmonth}月\ulinec[.06]{\buaa@thesisendday}日 \\
